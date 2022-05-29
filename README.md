@@ -49,6 +49,11 @@ Step3. Others
 pip3 install cython_bbox
 ```
 
+```shell
+sudo apt install libgfortran5 libatlas3-base
+sudo apt-get install libatlas-base-dev
+```
+
 ## Inference
 ```shell
 cd ByteTrack
