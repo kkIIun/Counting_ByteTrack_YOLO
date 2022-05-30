@@ -1,3 +1,5 @@
+# README.md
+
 # 소개
 
 다중 객체 추적(Multi Object Tracking, MOT)은 연속된 프레임 속에서 다중 객체에 대한 bounding box와 ID를 지속적으로 추적하는 것을 목표로 합니다. 대부분의 방법은 신뢰도(confidence score)가 임계값(threshold)보다 높게 검출된 객체의 bounding box를 연결하여 ID를 부여합니다.
@@ -26,28 +28,30 @@ OpenVINO의 지원 OS
 - [Raspbian](https://docs.openvino.ai/latest/openvino_docs_install_guides_installing_openvino_raspbian.html)
 
 # 개발환경
-# 개발환경(Environment)
 
-- Device :
-Raspberry Pi 4 model B+ (4GB,8GB)
-Intel Neural Compute Stick 2
-usb2.0 camera
-- OS : 
-Raspbian Buster, 32-bit
-- Util:
-openvino == 2021.4.2
-cmake == 3.16.3
-- Python :
-python == 3.7.3
-- pip3:
-numpy == 1.21.6
-scipy == 1.7.3
-loguru == 0.6.0
-lap == 0.4.0
-cython_bbox == 0.1.3
-Pillow == 5.4.1
+Device
+- Raspberry Pi 4 model B+ (4GB,8GB)
+- Intel Neural Compute Stick 2
+- usb2.0 camera
 
-라즈베리파이 설정(필요 하신분 가져가세요)
+OS
+- Raspbian 10 Buster, 32-bit
+
+Util
+- openvino == 2021.4.2
+
+Python
+- python == 3.7.3
+
+pip3 packages
+- numpy == 1.21.6
+- scipy == 1.7.3
+- loguru == 0.6.0
+- lap == 0.4.0
+- cython_bbox == 0.1.3
+- Pillow == 5.4.1
+
+## 라즈베리파이 초기 설정
 
 1. Raspbian Buster, 32-bit OS를 설치. [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/)
 2. 라즈베리파이에 OpenVINO toolkit을 설치한다.
@@ -84,32 +88,25 @@ Pillow == 5.4.1
 
 `pip install openvino-dev[onnx]`
 
-# 사용법 혹은 설치방법(How to install?)
-
-## Installation
+# 사용법
 
 Step1. clone this repo:
-
 ```
 git clone https://github.com/ByungOhKo/Counting_ByteTrack_YOLO.git
 cd ByteTrack
 pip3 install -r requirements.txt
 ```
-
 Step2. Install other dependencies
-
-```jsx
+```shell
 pip3 install cython; pip3 install 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
 pip3 install cython_bbox
 sudo apt install libgfortran5 libatlas3-base
 sudo apt-get install libatlas-base-dev
 ```
-
 ## Inference
 
 Use either -i or -s to specify your config.
-
-```jsx
+```shell
 cd ByteTrack
 python3 openvino_inference.py -m model/yolox_tiny_openvino/yolox_tiny -i "416,416" -s 0.5 --track_thresh 0.5
 ```
@@ -120,7 +117,7 @@ Step1. Train your own model.
 
 Step2. Run Model Optimizer to convert the model to IR:
 
-```jsx
+```shell
 mo --input_model INPUT_MODEL_DIR
 ```
 
