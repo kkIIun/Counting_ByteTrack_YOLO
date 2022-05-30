@@ -127,4 +127,17 @@ Step4. Put IR files (.xml .bin) in the directory `model\your_model_name\`
 
 # about runtime parameters
 
- model: yolo 모델
+ --model: IR(.bin, .xml) 모델의 path를 입력으로 넣어주세요.
+ --video_path: video path를 입력으로 넣어주세요. 
+ --output_dir: 출력 directory를 넣어주세요.
+ --score_thr: model를 통과하고 나온 detection중 score_thr 보다 낮은 detection은 제거됩니다. 
+ --nms_thr: non-maximal-suppression 의 threshold 입니다. 높을 수록 score가 높은 detection의 area와 IOU 가 높은 다른 detection을 많이 제거합니다. 
+ --input_shape: IR 모델을 훈련 시켰을 때 입력 shape을 넣어주세요. 
+ --with_p6: FPN/PAN 에서 p6를 사용할지를 결정합니다. p6를 사용하게 되면 더 512^2의 anchor box를 사용하게 됩니다.
+ --track_thresh: detection score에서 high, low를 나누는 threshold입니다. 
+ --track_buffer: tracking에서 잃어버린 track들에 대해서 몇 frame까지 정보를 가지고 있을 지 정합니다. 값이 클 수록 더 오랫동안 도중에 tracking이 끊긴 track들에 대해서 정보를 가지고 있습니다. 
+ --match_thresh: 헝가리안 알고리즘(최적 비용 매칭)에서 IOU값으로 매칭 detection을 매칭시킬 때 사용하는 threshold값 입니다. 높을 수록 더 많이 매칭이 되지만 정확도가 떨어지게 됩니다.
+ --min-box-area: 매칭 된 detection 중 min-box-area보다 작은 detection에 대해서는 버려줍니다.
+ --mot20: mot20 challenge에 대해서 test할지 정합니다.
+ 
+
